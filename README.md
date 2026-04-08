@@ -28,27 +28,6 @@ ResumeSparkAI is an AI-powered Resume Analyzer built with React, TypeScript, and
 - **Cross-device compatibility:** Responsive design works on desktops, tablets, and phones.
 - **Sleek UI/UX:** Powered by Tailwind CSS for a modern look and feel.
 
----
-
-## 🤸 Quick Start
-
-**Prerequisites**
-
-- Git
-- Node.js
-- npm
-
-**Clone the repository:**
-```bash
-git clone https://github.com/<your-username>/ResumeSparkAI.git
-cd ResumeSparkAI
-```
-
-**Install dependencies:**
-```bash
-npm install
-```
-
 **Run the development server:**
 ```bash
 npm run dev
