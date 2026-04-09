@@ -11,66 +11,83 @@ interface ATSProps {
 }
 
 const ATS: React.FC<ATSProps> = ({ score, suggestions }) => {
-  // Determine background gradient based on score
-  const gradientClass = score > 69
-    ? 'from-green-100'
-    : score > 49
-      ? 'from-yellow-100'
-      : 'from-red-100';
-
-  // Determine icon based on score
-  const iconSrc = score > 69
-    ? '/icons/ats-good.svg'
-    : score > 49
-      ? '/icons/ats-warning.svg'
-      : '/icons/ats-bad.svg';
-
-  // Determine subtitle based on score
   const subtitle = score > 69
-    ? 'Great Job!'
+    ? 'Strong ATS alignment'
     : score > 49
-      ? 'Good Start'
-      : 'Needs Improvement';
+      ? 'Solid foundation'
+      : 'Needs improvement';
+
+  const scoreState = score > 69
+    ? "status-chip status-chip--success"
+    : score > 49
+      ? "status-chip status-chip--warning"
+      : "status-chip status-chip--danger";
 
   return (
-    <div className={`bg-gradient-to-b ${gradientClass} to-white rounded-2xl shadow-md w-full p-6`}>
-      {/* Top section with icon and headline */}
-      <div className="flex items-center gap-4 mb-6">
-        <img src={iconSrc} alt="ATS Score Icon" className="w-12 h-12" />
-        <div>
-          <h2 className="text-2xl font-bold">ATS Score - {score}/100</h2>
-        </div>
-      </div>
-
-      {/* Description section */}
-      <div className="mb-6">
-        <h3 className="text-xl font-semibold mb-2">{subtitle}</h3>
-        <p className="text-gray-600 mb-4">
-          This score represents how well your resume is likely to perform in Applicant Tracking Systems used by employers.
-        </p>
-
-        {/* Suggestions list */}
+    <section className="surface-card-strong w-full p-6 md:p-7">
+      <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
         <div className="space-y-3">
-          {suggestions.map((suggestion, index) => (
-            <div key={index} className="flex items-start gap-3">
-              <img
-                src={suggestion.type === "good" ? "/icons/check.svg" : "/icons/warning.svg"}
-                alt={suggestion.type === "good" ? "Check" : "Warning"}
-                className="w-5 h-5 mt-1"
-              />
-              <p className={suggestion.type === "good" ? "text-green-700" : "text-amber-700"}>
-                {suggestion.tip}
-              </p>
-            </div>
-          ))}
+          <p className="eyebrow">Applicant Tracking Fit</p>
+          <h2 className="panel-title">ATS Score</h2>
+          <p className="max-w-2xl text-sm leading-7 text-[var(--text-secondary)]">
+            This estimate reflects how legible and relevant your resume looks to
+            automated screening systems before a recruiter ever sees it.
+          </p>
+        </div>
+
+        <div className="flex items-center gap-3">
+          <div className={scoreState}>
+            <span className="size-2 rounded-full bg-current" />
+            {subtitle}
+          </div>
+          <div className="rounded-[1.4rem] border border-[color:var(--border)] bg-[var(--surface-soft)] px-4 py-3 text-right">
+            <p className="text-xs uppercase tracking-[0.2em] text-[var(--text-muted)]">
+              Score
+            </p>
+            <p className="font-serif text-4xl text-[var(--text-primary)]">
+              {score}
+              <span className="text-lg text-[var(--text-secondary)]">/100</span>
+            </p>
+          </div>
         </div>
       </div>
 
-      {/* Closing encouragement */}
-      <p className="text-gray-700 italic">
-        Keep refining your resume to improve your chances of getting past ATS filters and into the hands of recruiters.
+      <div className="mt-6 grid gap-3">
+        {suggestions.map((suggestion, index) => (
+          <div
+            key={`${suggestion.tip}-${index}`}
+            className="flex items-start gap-3 rounded-[1.25rem] border border-[color:var(--border)] bg-[var(--surface-soft)] px-4 py-4"
+          >
+            <span
+              className={
+                suggestion.type === "good"
+                  ? "mt-1 inline-flex size-6 items-center justify-center rounded-full bg-[rgba(134,179,143,0.18)] text-[#bde3c4]"
+                  : "mt-1 inline-flex size-6 items-center justify-center rounded-full bg-[rgba(214,162,92,0.18)] text-[#ecc285]"
+              }
+              aria-hidden="true"
+            >
+              {suggestion.type === "good" ? "+" : "!"}
+            </span>
+            <p className="text-sm leading-7 text-[var(--text-secondary)]">
+              <span className="font-semibold text-[var(--text-primary)]">
+                {suggestion.type === "good" ? "Strength:" : "Improve:"}
+              </span>{" "}
+              {suggestion.tip}
+            </p>
+          </div>
+        ))}
+        {suggestions.length === 0 && (
+          <div className="rounded-[1.25rem] border border-dashed border-[color:var(--border)] px-4 py-5 text-sm text-[var(--text-secondary)]">
+            No ATS notes were returned for this run.
+          </div>
+        )}
+      </div>
+
+      <p className="mt-6 text-sm leading-7 text-[var(--text-secondary)]">
+        Keep refining the phrasing, structure, and keyword alignment to improve
+        your odds of getting past the filter and into a recruiter review queue.
       </p>
-    </div>
+    </section>
   )
 }
 
