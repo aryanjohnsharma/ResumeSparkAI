@@ -115,8 +115,8 @@ main {
   color: var(--text-primary);
   font-family: var(--font-serif);
   font-size: clamp(2.8rem, 6vw, 4.8rem);
-  line-height: 0.95;
-  letter-spacing: -0.04em;
+  line-height: 1.04;
+  letter-spacing: -0.03em;
   @apply font-medium;
 }
 

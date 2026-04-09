@@ -14,6 +14,7 @@ import { usePuterStore } from "~/lib/puter";
 import { ThemeProvider, themeScript } from "~/lib/theme";
 
 export const links: Route.LinksFunction = () => [
+  { rel: "icon", type: "image/svg+xml", href: "/images/MAIN%20LOGO%20SVG.svg" },
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
     rel: "preconnect",

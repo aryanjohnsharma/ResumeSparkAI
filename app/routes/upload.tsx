@@ -112,7 +112,9 @@ const Upload = () => {
           <aside className="hero-card p-7 md:p-10">
             <div className="space-y-6">
               <p className="eyebrow">New analysis</p>
-              <h1 className="page-title">Build a sharper application package.</h1>
+              <h1 className="page-title leading-[1.04] md:leading-[1.02]">
+                Build a sharper application package.
+              </h1>
               <p className="page-subtitle">
                 Upload a PDF, add optional target role context, and let
                 ResumeSparkAI create a preview, run the AI feedback flow, and save

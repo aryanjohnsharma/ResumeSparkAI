@@ -7,8 +7,12 @@ const Navbar = () => {
       <div className="app-container">
         <nav className="nav-bar flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <Link to="/" className="flex items-center gap-3">
-            <div className="flex size-11 items-center justify-center rounded-2xl bg-[rgba(201,100,66,0.14)] text-sm font-semibold text-[#edaf9a]">
-              RS
+            <div className="flex size-11 items-center justify-center overflow-hidden rounded-2xl bg-[rgba(201,100,66,0.14)] p-1.5">
+              <img
+                src="/images/MAIN%20LOGO.png"
+                alt="ResumeSparkAI logo"
+                className="size-full object-contain"
+              />
             </div>
             <div>
               <p className="brand-wordmark">ResumeSparkAI</p>
