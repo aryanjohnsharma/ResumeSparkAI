@@ -10,6 +10,7 @@ import { useEffect } from "react";
 
 import type { Route } from "./+types/root";
 import "./app.css";
+import Footer from "~/components/Footer";
 import { usePuterStore } from "~/lib/puter";
 import { ThemeProvider, themeScript } from "~/lib/theme";
 
@@ -23,7 +24,7 @@ export const links: Route.LinksFunction = () => [
   },
   {
     rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap",
+    href: "https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Teko:wght@300;400;500;600;700&display=swap",
   },
 ];
 
@@ -49,7 +50,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body className="min-h-screen antialiased">
         <script src="https://js.puter.com/v2/"></script>
-        <AppProviders>{children}</AppProviders>
+        <AppProviders>
+          <div className="min-h-screen flex flex-col">
+            <div className="flex-1">{children}</div>
+            <Footer />
+          </div>
+        </AppProviders>
         <ScrollRestoration />
         <Scripts />
       </body>
