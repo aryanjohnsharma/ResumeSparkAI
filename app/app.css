@@ -560,6 +560,47 @@ main {
   filter: drop-shadow(0 0 8px rgba(255, 164, 128, 0.28));
 }
 
+.theme-light .footer-shell {
+  background:
+    radial-gradient(circle at 18% 50%, rgba(201, 100, 66, 0.12), transparent 15rem),
+    radial-gradient(circle at 82% 38%, rgba(201, 100, 66, 0.07), transparent 11rem),
+    radial-gradient(rgba(20, 20, 19, 0.06) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(248, 244, 238, 0.92)),
+    rgba(245, 244, 237, 0.88);
+  background-size: auto, auto, 18px 18px, auto, auto;
+}
+
+.theme-light .footer-copy-button,
+.theme-light .footer-stack-chip,
+.theme-light .footer-icon-link {
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(20, 20, 19, 0.12);
+  box-shadow: 0 8px 24px rgba(20, 20, 19, 0.05);
+}
+
+.theme-light .footer-copy-button,
+.theme-light .footer-icon-link {
+  color: #5c564d;
+}
+
+.theme-light .footer-stack-label {
+  color: #8a7f72;
+}
+
+.theme-light .footer-marquee-group span {
+  background:
+    linear-gradient(90deg, rgba(20, 20, 19, 0.12), rgba(20, 20, 19, 0.64), rgba(201, 100, 66, 0.7), rgba(20, 20, 19, 0.14));
+  background-size: 220% 100%;
+  text-shadow: 0 4px 16px rgba(201, 100, 66, 0.08);
+  filter: drop-shadow(0 0 6px rgba(201, 100, 66, 0.06));
+}
+
+.theme-light .footer-marquee-separator {
+  color: #d98a69;
+  text-shadow: 0 0 14px rgba(217, 138, 105, 0.18);
+  filter: drop-shadow(0 0 4px rgba(217, 138, 105, 0.14));
+}
+
 @keyframes footerShimmer {
   0% {
     background-position: 0% 50%;

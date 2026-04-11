@@ -3,13 +3,14 @@ import { useEffect, useState } from "react";
 const REPO_URL = "https://github.com/aryanjohnsharma/ResumeSparkAI";
 const PUTER_DOCS_URL = "https://docs.puter.com/";
 const GITHUB_PROFILE_URL = "https://github.com/aryanjohnsharma";
+const PORTFOLIO_URL = "https://aryanjohnsharma.github.io/";
 const X_PROFILE_URL = "https://x.com/aryanjohnsharma";
 const EMAIL_ADDRESS = "aryanjohnsharma@gmail.com";
 
 const stackItems = [
   { label: "Built with", value: "Puter.js", href: PUTER_DOCS_URL },
   { label: "Styled with", value: "Tailwind CSS", href: "https://tailwindcss.com/" },
-  { label: "Deployed on", value: "React Router + Vite", href: "https://reactrouter.com/" },
+  { label: "Deployed on", value: "Vercel", href: "https://vercel.com/" },
 ];
 
 const Footer = () => {
@@ -48,7 +49,7 @@ const Footer = () => {
                   className="footer-copy-button"
                 >
                   <PuterIcon className="size-4" />
-                  How it&apos;s made with Puter.js
+                  Learn how this project works with Puter.js
                 </a>
                 <button
                   type="button"
@@ -97,6 +98,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="footer-stack-chip"
                 >
+                  {item.label === "Deployed on" ? <VercelIcon className="size-3.5" /> : null}
                   <span className="footer-stack-label">{item.label}</span>
                   <span className="footer-stack-value">{item.value}</span>
                 </a>
@@ -113,6 +115,16 @@ const Footer = () => {
                 title="GitHub"
               >
                 <GitHubIcon className="size-4" />
+              </a>
+              <a
+                href={PORTFOLIO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-icon-link"
+                aria-label="Portfolio"
+                title="Portfolio"
+              >
+                <GlobeIcon className="size-4" />
               </a>
               <a
                 href={X_PROFILE_URL}
@@ -186,6 +198,17 @@ function TwitterXIcon({ className }: { className?: string }) {
   );
 }
 
+function GlobeIcon({ className }: { className?: string }) {
+  return (
+    <svg {...iconProps(className)}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12h18" />
+      <path d="M12 3a15 15 0 0 1 0 18" />
+      <path d="M12 3a15 15 0 0 0 0 18" />
+    </svg>
+  );
+}
+
 function MailIcon({ className }: { className?: string }) {
   return (
     <svg {...iconProps(className)}>
@@ -199,6 +222,20 @@ function PuterIcon({ className }: { className?: string }) {
   return (
     <svg {...iconProps(className)}>
       <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" />
+    </svg>
+  );
+}
+
+function VercelIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className={className}
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path d="M12 4 21 20H3L12 4Z" />
     </svg>
   );
 }
